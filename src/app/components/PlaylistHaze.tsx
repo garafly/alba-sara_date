@@ -28,7 +28,7 @@ type PlaylistHazeProps = {
     };
   
     return (
-      <div className="bg-white/90 p-6 rounded-xl shadow-lg max-w-xl w-full relative">
+      <div className="bg-white/90 p-6 rounded-xl shadow-lg max-w-xl h-auto w-98 relative">
         {/* Back button */}
         <button
           onClick={onClose}
@@ -48,24 +48,23 @@ type PlaylistHazeProps = {
         )}
   
         {/* Header */}
-        <h2 className="text-2xl font-bold mb-4 text-center">
+        <h2 className="text-2xl font-bold mt-10 mb-4 text-center">
           {winnerSelected ? 'Recompensa:' : isGameOver ? 'Final Round!' : `${currentPlayer}’s turn!`}
         </h2>
   
         {/* Body */}
-        <div className="text-center text-base text-gray-800 mb-6 min-h-[80px] flex items-center justify-center">
+        <div className="text-center text-base text-gray-800 mb-6 min-h-[90px] flex items-center justify-center">
           {winnerSelected ? (
             <span className="text-xl font-semibold text-pink-600 text-center">
-              You get change your own name in the other persons phone + the next place we are going! 💕
+              You get to change your own name in the other persons phone + the next place we are going! 💕
             </span>
           ) : isGameOver ? (
             <span className="text-3xl font-bold text-purple-700">Who won???</span>
           ) : (
-            <span className="leading-relaxed">
+            <p className="text-caneter">
               Choose a song you listen to often! <br />
-              Play it for <b>10 seconds</b> at any given time of the song. <br />
-              The other one has to guess the artist or the song.
-            </span>
+              Play it for <b>10 seconds</b> at any given time of the song.The other one has to guess the artist or the song.
+            </p>
           )}
         </div>
   

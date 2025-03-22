@@ -27,8 +27,8 @@ const dares = [
   "Solo puedes hablar al oído por los próximos 2 minutos.",
   "Tienes que contarme una fantasía... como si fuera de ‘un amigo’.",
   "Di dos verdades y una mentira, sin que la descubran",
-  "Sing a romantic song for 5 seconds 🎤",
-  "Do a spin and wink at the camera 😉",
+  "Inventa una excusa absurda para acercarte más a mí.",
+  "Hazme una propuesta tentadora… que no sea indecente (o al menos que lo parezca).",
   "Mírame como si me quisieras besar… pero no lo hagas.",
   "provocarme... sin tocarme.",
 ];
@@ -69,7 +69,7 @@ const TruthOrDare = ({ onAddPoint, onClose }: TruthOrDareProps) => {
       : '';
 
   return (
-    <div className="bg-white/90 p-6 rounded-xl shadow-lg max-w-xl w-full relative">
+    <div className="bg-white/90 p-6 rounded-xl shadow-lg max-w-xl h-auto w-95 relative">
       {/* Back button */}
       <button
         onClick={onClose}
@@ -89,7 +89,7 @@ const TruthOrDare = ({ onAddPoint, onClose }: TruthOrDareProps) => {
       )}
 
       {/* Header */}
-      <h2 className="text-2xl font-bold mb-2 text-center">
+      <h2 className="text-2xl font-bold mt-10 mb-2 text-center">
         {winnerSelected ? 'Recompensa:' : isGameOver ? 'Final Round!' : `${currentPlayer}’s turn!`}
       </h2>
 
@@ -119,7 +119,7 @@ const TruthOrDare = ({ onAddPoint, onClose }: TruthOrDareProps) => {
       <div className="text-center text-base text-gray-800 min-h-[80px] flex items-center justify-center mb-4">
         {winnerSelected ? (
           <span className="text-xl font-semibold text-pink-600">
-            You get to pick the next place we are going! 💕
+            Un secreto suave al oído y un abrazo con intención. 💕
           </span>
         ) : isGameOver ? (
           <span className="text-3xl font-bold text-purple-700">Who won???</span>

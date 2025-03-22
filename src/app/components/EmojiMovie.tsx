@@ -11,7 +11,7 @@ type EmojiMovieProps = {
 const EmojiMovie = ({ onAddPoint, onClose }: EmojiMovieProps) => {
   const [round, setRound] = useState(0);
   const [winnerSelected, setWinnerSelected] = useState<string | null>(null);
-  const [showAnswer, setShowAnswer] = useState(false);
+
   const [customEmoji, setCustomEmoji] = useState('');
 
   const isGameOver = round >= 10;
@@ -23,7 +23,6 @@ const EmojiMovie = ({ onAddPoint, onClose }: EmojiMovieProps) => {
   const handleNext = () => {
     if (!isGameOver) {
       setRound((prev) => prev + 1);
-      setShowAnswer(false);
       setCustomEmoji('');
     }
   };
@@ -31,7 +30,6 @@ const EmojiMovie = ({ onAddPoint, onClose }: EmojiMovieProps) => {
   const handlePrevious = () => {
     if (round > 0) {
       setRound((prev) => prev - 1);
-      setShowAnswer(false);
       setCustomEmoji('');
     }
   };
@@ -42,7 +40,7 @@ const EmojiMovie = ({ onAddPoint, onClose }: EmojiMovieProps) => {
   };
 
   return (
-    <div className="bg-white/90 p-6 rounded-xl shadow-lg max-w-xl w-full relative">
+    <div className="bg-white/90 p-6 rounded-xl shadow-lg max-w-xl w-95 h-auto relative">
       {/* Back to board */}
       <button
         onClick={onClose}
@@ -62,7 +60,7 @@ const EmojiMovie = ({ onAddPoint, onClose }: EmojiMovieProps) => {
       )}
 
       {/* Header */}
-      <h2 className="text-2xl font-bold mb-4 text-center">
+      <h2 className="text-2xl font-bold mt-10 mb-4 text-center">
         {winnerSelected ? 'Recompensa:' : isGameOver ? 'Final Round!' : `${currentPlayer}’s turn!`}
       </h2>
 
@@ -76,36 +74,21 @@ const EmojiMovie = ({ onAddPoint, onClose }: EmojiMovieProps) => {
           <span className="text-3xl font-bold text-purple-700">Who won???</span>
         ) : (
           <>
-            <p className="text-sm text-gray-600 text-center">
+            <p className="text-md text-gray-600 text-center w-60">
               <span className="block font-medium text-purple-700 mb-1">
                 Turn {round + 1} of 10
               </span>
-              Tell a movie with emojis and the other person guesses it!
+              Describe a movie with emojis and the other person guesses it!
             </p>
 
             <input
               type="text"
-              placeholder="Type emojis here..."
+              placeholder="🏁 Ready…"
               value={customEmoji}
               onChange={(e) => setCustomEmoji(e.target.value)}
-              className="text-2xl text-center bg-gray-100 rounded px-4 py-2 w-full max-w-sm"
+              className="text-2xl text-center bg-slate-600 rounded px-4 py-2 w-full max-w-sm"
             />
 
-            {customEmoji && (
-              <>
-                <button
-                  onClick={() => setShowAnswer(true)}
-                  className="text-sm text-blue-600 underline hover:text-blue-800"
-                >
-                  Answer:
-                </button>
-                {showAnswer && (
-                  <div className="text-purple-700 font-semibold text-lg">
-                
-                  </div>
-                )}
-              </>
-            )}
           </>
         )}
       </div>
